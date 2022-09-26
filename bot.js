@@ -13,8 +13,8 @@ const mineflayer = require("mineflayer");
 console.log(dataWaypoint);
 
 const bot = mineflayer.createBot({
-  host: "10c.wacky.dev",
-  username: "10C_Bot",
+  host: <InsertIP>,
+  username: <InsertUsername>, // You can also add a Microsoft account for premium authentication
 });
 
 bot.on("login", (a) => {
