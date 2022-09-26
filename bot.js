@@ -23,7 +23,7 @@ bot.on("login", (a) => {
     `Bot logged on to ${botSocket.server ? botSocket.server : botSocket._host}`
   );
   bot.chat(
-    "im a bot fr, that means im not a real person. just do '!10c help' for a list of what i can do fr"
+    "im a bot fr, that means im not a real person."
   );
 });
 
@@ -33,20 +33,20 @@ bot.on("end", () => {
 
 function waypointCmd() {
   bot.chat("Waypoint commands:");
-  bot.chat("!10c waypoint add (x y z) (name)");
-  bot.chat("!10c waypoint remove (name)");
-  bot.chat("!10c waypoint find (name)");
-  bot.chat("!10c waypoint list");
+  bot.chat("!bot waypoint add (x y z) (name)");
+  bot.chat("!bot waypoint remove (name)");
+  bot.chat("!bot waypoint find (name)");
+  bot.chat("!bot waypoint list");
 }
 function helpCmd() {
   bot.chat("List of commands:");
-  bot.chat("!10c waypoint");
+  bot.chat("!bot waypoint");
   bot.chat("-");
   bot.chat("ok thats all i can do rn sorry");
 }
 
 bot.on("chat", (a, b) => {
-  if (b.slice(0, 5).toLowerCase() === "!10c " && a !== "10C_Bot") {
+  if (b.slice(0, 5).toLowerCase() === "!bot " && a !== <InsertUsername>) {
     let command = b.slice(5);
     let preCommandArray = command.split(" ");
     let commandArray = [];
@@ -65,7 +65,7 @@ bot.on("chat", (a, b) => {
         !commandArray[4] ||
         !commandArray[5]
       ) {
-        bot.chat("!10c waypoint add (x y z) (name)");
+        bot.chat("!bot waypoint add (x y z) (name)");
       } else {
         let coords = [
           Number(commandArray[2]),
@@ -97,7 +97,7 @@ bot.on("chat", (a, b) => {
     } else if (commandArray[0] === "waypoint" && commandArray[1] == "remove") {
       // Remove
       if (!commandArray[2]) {
-        bot.chat("!10c waypoint remove (name)");
+        bot.chat("!bot waypoint remove (name)");
       } else {
         if (!dataWaypoint[commandArray[2]]) {
           bot.chat("Waypoint does not exist!");
